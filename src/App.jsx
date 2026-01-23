@@ -5,7 +5,7 @@ import Features from "./Components/04_Features";
 import Motivation from "./Components/05_Motivation";
 import Reviews from "./Components/06_Reviews";
 import Footer from "./Components/07_Footer";
-
+import "./Styles/Custom.css";
 function App() {
   return (
     <div className="app">

@@ -1,3 +1,215 @@
 .logo {
     font-family: 'Very Berry',cursive;
 }
+/* ===== Why it matters section =====*/
+.why-section {
+    padding: 4rem 2rem;
+    background-color: #f6f3eb;
+    text-align: center;
+}
+.why-title {
+    font-size: 2.4rem;
+    color: #4a7c86;
+    margin-bottom: 1rem;
+}
+.why-desc {
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    color: #555;
+    line-height: 1.6;
+}
+.why-cards {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.why-card {
+    background-color: #b7d7d1;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 320px;
+    transition: transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.why-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+.why-card h3 {
+    color: #2f5f67;
+    margin-bottom: 0.8rem;
+}
+.why-card p {
+    color: #333;
+}
+/* ===== Core Features section ===== */
+*/
+.features-section {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: #f6f3eb;
+}
+.features-title {
+    font-size: 2.4rem;
+    color: #4a7c86;
+    margin-bottom: 0.5rem;
+}
+.features-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.features-desc {
+color: #555;
+margin: 0 auto 3rem;
+max-width: 600px;
+text-align: center;
+}
+.features-cards {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.feature-card {
+    background-color: #b7d7d1;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease,box-shadow 0.2s ease;
+}
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+.feature-card h3 {
+    color: #2f5f67;
+    margin-bottom: 1rem;
+}
+.feature-card p {
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+.feature-card button {
+    padding: 0.6rem 1.4rem;
+    border-radius: 8px;
+    border: none;
+    background-color: #8bcfd3;
+    color: #333;
+    cursor: pointer;
+}
+/* ===== Motivation Section ===== */
+
+.motivation-section {
+  padding: 4rem 2rem;
+  background-color: #f6f3eb;
+  text-align: center;
+}
+
+.motivation-title {
+  font-size: 2.4rem;
+  color: #4a7c86;
+  margin-bottom: 0.5rem;
+}
+
+.motivation-desc {
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  color: #555;
+}
+
+/* Slider layout */
+.motivation-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.motivation-window {
+  width: 480px;
+  overflow: hidden;
+  position: relative;
+  background-color: #b7d7d1;
+  border-radius: 18px;
+  padding: 2rem 1.5rem 3rem; /*bottom 
+  space for dots*/
+}
+
+.motivation-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Cards */
+.motivation-card {
+  min-width: 100%;
+  background-color: #b7d7d1;
+  padding: 2rem;
+  border-radius: 14px;
+}
+
+.motivation-card h3 {
+  color: #2f5f67;
+  margin-bottom: 1rem;
+}
+
+.motivation-card p {
+  color: #333;
+}
+/*Quote slide (new) */
+.motivation-quote {
+    text-align: center;
+    min-width: 100%;
+    background-color: none;
+    padding: 0;
+    border-radius: 14px;
+    color: #333;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Arrows */
+.motivation-arrow {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #4a7c86;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+.motivation-arrow:hover {
+    opacity: 1;
+}
+
+/* Dots */
+.motivation-dots {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 4px;
+  border-radius: 50%;
+  background-color: #5f7f7c;
+  opacity: 0.35;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background-color: #2f5f67;
+  opacity: 1;
+  transform: scale(1.15);
+}
