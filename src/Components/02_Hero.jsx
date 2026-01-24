@@ -10,10 +10,12 @@ function Hero() {
 
         <p className="hero-description">
           Understand thoughtful habit tracking, mood reflection
-          and focus for mindful living – all in one place.
+          and focus for mindful living - all in one place.
         </p>
 
-        <button className="hero-btn">Start Your Journey</button>
+        <button className="hero-button">
+          Start Your Journey
+        </button>
       </div>
     </section>
   );
