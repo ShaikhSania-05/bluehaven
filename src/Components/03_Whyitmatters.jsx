@@ -1,7 +1,7 @@
 function Whyitmatters() {
     return (
         <section className="why-section">
-        <h2 className="why-title">Why it Matters?</h2>
+        <h2 className="why-title brand-font">Why it Matters?</h2>
         <p className="why-desc">
             BlueHaven helps you build healthier digital habits through mindful 
             tracking, gentle insights, and calm design, so technology supports 

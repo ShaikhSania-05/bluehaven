@@ -1,3 +1,10 @@
+@font-face {
+font-family: "veryberrypro";
+src: url("./assets/fonts/veryberrypro_regular.otf");
+format:("opentype");
+font-weight: normal;
+font-style: normal;
+}
 /* RESET - must need a selector */
 *{margin: 0;
 padding: 0;
@@ -5,7 +12,7 @@ box-sizing: border-box;
 }
 /* ROOT - global font */
 *:root {
-  font-family: 'Ovo',serif;
+  font-family: "veryberrypro",'Ovo',serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -26,15 +33,16 @@ a:hover {
 
 body {
   margin: 0;
-  font-family:'Ovo',serif;
+  font-family: 'Ovo',serif;
   background-color: #f7f3ea;
   color:#2f3e46;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  overflow-x: hidden;
 }
-
+.brand-font {
+  font-family: "veryberrypro", "Ovo", serif;
+  font-weight: 400;
+  letter-spacing: 0.04rem;
+}
 h1 {
   font-size: 3.2em;
   line-height: 1.1;

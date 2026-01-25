@@ -1,7 +1,12 @@
+import BluehavenLogo from "../assets/images/Bluehavenlogo.svg";
+
 function Navbar() {
     return (
         <nav className ="navbar">
-            <h1 className="logo">Bluehaven</h1>
+            <div className="navbar-brand">
+                <img src={BluehavenLogo} alt="navbarlogo"/>
+            <h1 className="logo brand-font">Bluehaven</h1>
+            </div>
             <ul className="nav-links">
                 <li>Home</li>
                 <li>Features</li>

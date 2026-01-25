@@ -1,14 +1,19 @@
+import BluehavenLogo from "../assets/images/Bluehavenlogo.svg";
+
 function Footer() {
     return (
         <footer className="footer-section">
             <div className="footer-content">
                 {/*Brand*/}
                 <div className="footer-brand">
-                    <h2 className="footer-logo">BlueHaven</h2>
-                    <p className="footer-tagline">
+                    <img src={BluehavenLogo} alt="Bluehaven Logo" className="footer-logo-img"/>
+                    <div className="footer-brand-text">
+                    <h2 className="footer-logo brand-font">BlueHaven</h2>
+                    <p className="footer-tagline">  
                         "Navigate your digital life with calm"
                     </p>
-                </div>
+              </div>
+                   </div>
                 {/*Quick Links*/}
                 <div className="footer-column">
                     <h4>Quick Links</h4>

@@ -38,7 +38,7 @@ function Motivation() {
 
   return (
     <section className="motivation-section">
-      <h2 className="motivation-title">Motivational Corner</h2>
+      <h2 className="motivation-title brand-font">Motivational Corner</h2>
       <p className="motivation-desc">
         The Motivational Corner provides gentle encouragement to support users
         in maintaining overall digital well-being.
