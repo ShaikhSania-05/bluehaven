@@ -558,3 +558,17 @@ margin-bottom: 2rem;
 .auth-switch {
     margin-top: 1.5rem;
 }
+.material-icons {
+    font-family: "Material Icons";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    direction: 1tr;
+}
