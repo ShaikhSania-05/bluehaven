@@ -1,6 +1,6 @@
 import habittracking from "../assets/images/habittracking.png";
-import moodlogtracking from "../assets/images/moodlogtracking.png"
-
+import moodlogtracking from "../assets/images/moodlogtracking.png";
+import Insights from "../assets/images/Insights.png";
 function Features() {
     return (
        <section 
@@ -34,6 +34,7 @@ function Features() {
         </div>
         <div className="feature-card">
             <h3>View Insights</h3>
+            <img src={Insights} alt="Insights"/>
             <p>
                 Get gentle insights to
                 help you make healthier digital choices.

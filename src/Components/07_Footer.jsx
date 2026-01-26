@@ -1,4 +1,4 @@
-import BluehavenLogo from "../assets/images/Bluehavenlogo.svg";
+import BluehavenLogo from "../assets/images/Bluehavenlogo.png";
 
 function Footer() {
     return (

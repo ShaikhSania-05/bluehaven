@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import flatfish from "../assets/images/flatfish.png";
 import hardrock from "../assets/images/hardrock.png";
 
@@ -17,10 +18,11 @@ function Hero() {
           Understand thoughtful habit tracking, mood reflection
           and focus for mindful living - all in one place.
         </p>
-
+        <Link to="/signup">
         <button className="hero-button">
           Start Your Journey
         </button>
+       </Link>
       </div>
     </section>
   );

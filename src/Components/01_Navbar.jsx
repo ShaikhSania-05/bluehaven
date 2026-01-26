@@ -1,5 +1,5 @@
-import BluehavenLogo from "../assets/images/Bluehavenlogo.svg";
-
+import BluehavenLogo from "../assets/images/Bluehavenlogo.png";
+import { Link } from "react-router-dom";
 function Navbar() {
     return (
         <nav className ="navbar">
@@ -13,9 +13,11 @@ function Navbar() {
                 <li>Reviews</li>
                 <li>About</li>
             </ul>
+            <Link to="/login">
             <button className="nav-button">
-                Sign up
+                Sign in
             </button>
+        </Link>
         </nav>
     );
 }

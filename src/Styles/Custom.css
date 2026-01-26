@@ -19,7 +19,7 @@
     font-family: "veryberrypro";
     font-size: 1.8rem;
     color: #1f3b4d;
-    margin: 0;
+    margin-top: 10px;
 }
 .navbar-logo {
     width: 47px;
@@ -27,7 +27,7 @@
     object-fit: contain;
 }
 .navbar-brand img {
-   max-width: 40px;
+   max-width: 60px;
    height: auto;
    object-fit: contain;
    background: none;
@@ -35,7 +35,7 @@
 }
 .navbar-brand {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     gap: 0.6rem;
 }
 /*Nav links*/
@@ -439,7 +439,7 @@
     margin-bottom: 0.5rem;
 }
 .footer-logo-img {
-   width: 60px;
+   width: 80px;
    height: auto;
    object-fit: contain;
    display: block;
@@ -504,4 +504,57 @@
 .email-icon {
     margin-right: 6px;
     vertical-align: middle;
+}
+/* ===== Auth Pages ===== */
+.auth-page {
+    min-height: 100vh;
+    background: #f6f1e7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.auth-logo {
+    font-family: "veryberrypro";
+    font-size: 2.8rem;
+    color: #2477ac;
+    margin-bottom: 0.5rem;
+}
+.auth-subtitle {
+color: #0d2f44;
+margin-bottom: 2rem;
+}
+.auth-form {
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.input-box {
+    background: #a1d7d6;
+    border-radius: 14px;
+    padding: 0.9rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.input-box-input {
+    border: none;
+    background: transparent;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+}
+.auth-button {
+    margin-top: 1rem;
+    background: #2477ac;
+    border: none;
+    padding: 0.9rem;
+    border-radius: 999px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+.auth-switch {
+    margin-top: 1.5rem;
 }
