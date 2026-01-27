@@ -545,6 +545,18 @@ margin-bottom: 2rem;
     width: 100%;
     outline: none;
     font-size: 1rem;
+    flex: 1;
+}
+.toggle-eye {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+.toggle-eye svg {
+    display: block;
 }
 .auth-button {
     margin-top: 1rem;
@@ -558,17 +570,206 @@ margin-bottom: 2rem;
 .auth-switch {
     margin-top: 1.5rem;
 }
-.material-icons {
-    font-family: "Material Icons";
-    font-weight: normal;
-    font-style: normal;
-    font-size: 20px;
-    line-height: 1;
-    letter-spacing: normal;
-    text-transform: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-    direction: 1tr;
+.icon {
+ font-size: 22px;
+ color: #4b6cb7;
 }
+.icon-person {
+    width: 1.7rem;
+    height: 1.7rem;
+    color: #4b6cb7;
+}
+/* ===== Insights Page ===== */
+.insights-page {
+    padding: 3rem 4rem;
+    background: #f6f1e7;
+    min-height: 100vh;
+    font-family: "Ovo",serif;
+}
+.insights-title {
+   text-align: center;
+   font-size: 2.4rem;
+   color: #2477ac;
+   margin-bottom: 3rem;
+   font-family: "veryberrypro";
+}
+.insights-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+    align-items: start;
+}
+.insights-card canvas {
+    width: 100%;
+    height: 280px;
+}
+.insights-card {
+    height: 380px;
+    padding: 1.8rem;
+    background: #9eced1;
+    border-radius: 16px;
+    overflow: hidden;
+}
+.insights-heading {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #2477ac;
+}
+.insights-message {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: 30px;
+    background: #a8d8d2;
+    text-align: center;
+    margin-inline: auto;
+    max-width: 80%;
+}
+/* ===== MoodLog Page ===== */
+.moodlog-page {
+    padding: 3rem 4rem;
+    background: #f6f1e7;
+    font-family: "Ovo",serif;
+}
+.moodlog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+.moodlog-title {
+    font-family: "veryberrypro";
+    font-size: 2.6rem;
+    color: #2477ac;
+}
+.moodlog-subtitles {
+    font-size: 1.2rem;
+    color: #2477ac;
+}
+.moodlog-grid {
+    display: grid;
+    grid-template-columns: 120px repeat(7,1fr);
+    gap: 1.6rem;
+    align-items: center;
+}
+.moodlog-emoji-row {
+    display: contents;
+}
+.mood-icon {
+    font-size: 2rem;
+    color: #4b6cb7;
+    opacity: 0.85;
+    text-align: center;
+    margin-bottom: 0.6rem;
+}
+.empty-cell {
+    height: 1px;
+}
+.moodlog-row {
+    display: contents;
+}
+.day-label {
+    font-size: 1.1rem;
+    color: #1f3b4d;
+}
+.moodlog-row input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    accent-color: #6fb3b8;
+    justify-self: center;
+}
+.moodlog-save {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: flex-end;
+}
+.save-button {
+    padding: 0.8rem 2.8rem;
+    border: none;
+    border-radius: 40px;
+    background: #9eced1;
+    color: #2f6f7a;
+    font-size: 1.1rem;
+    font-family: "Ovo",serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.save-button:hover {
+background: #84bcc2;
+}
+/* ===== Habit Tracker Page ===== */
+.habit-page {
+  padding: 3rem 4rem;
+  background: #f6f1e7;
+  font-family: "Ovo", serif;
+}
+.habit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.habit-title {
+  font-family: "veryberrypro";
+  font-size: 2.6rem;
+  color: #2477ac;
+}
+.habit-subtitle {
+  font-size: 1.2rem;
+  color: #2477ac;
+}
+.add-habit-button {
+  padding: 0.7rem 2.4rem;
+  border-radius: 40px;
+  border: none;
+  background: #9eced1;
+  color: #2f6f7a;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-family: "Ovo", serif;
+  transition: all 0.3s ease;
+}
+.add-habit-button:hover {
+  background: #84bcc2;
+}
+.habit-grid {
+  display: grid;
+  grid-template-columns: 220px repeat(7, 1fr);
+  gap: 1.2rem;
+  align-items: center;
+}
+.habit-days {
+  font-size: 1.1rem;
+  color: #1f3b4d;
+  text-align: center;
+}
+.habit-row {
+  display: grid;
+  grid-template-columns: 200px repeat(7,1fr);
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid #c9dede;
+}
+.habit-name {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.1rem;
+  color: #1f3b4d;
+}
+.habit-row input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  accent-color: #6fb3b8;
+  justify-self: center;
+}
+.habit-divider {
+  grid-column: 1 / -1;
+  height: 1px;
+  background: #9eb7bf;
+  margin: 0.6rem 0;
+}
+

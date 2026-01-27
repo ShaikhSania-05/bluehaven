@@ -1,6 +1,9 @@
 import {Link} from "react-router-dom";
+import {MdPerson,MdMail,MdLock,MdVisibility,MdVisibilityOff} from "react-icons/md";
+import {useState} from "react";
 
 function Signup() {
+    const [showPassword, setShowPassword]=useState(false);
     return (
     <div className="auth-page">
     <h1 className="auth-logo">BlueHaven</h1>
@@ -9,17 +12,19 @@ function Signup() {
     </p>
         <div className="auth-form">
         <div className="input-box">
-        <span className="material-icons">person</span>
+        <MdPerson className="icon-person"/>
         <input className="input-box-input" type="text" placeholder="User name"/>
     </div>
         <div className="input-box">
-        <span className="material-icons">mail</span>
+        <MdMail className="icon"/>
         <input className="input-box-input" type="email" placeholder="Email Address"/>
         </div>
         <div className="input-box">
-        <span className="material-icons">lock</span>
-        <input className="input-box-input" type="password" placeholder="Password"/>
-        <span className="material-icons">visibility</span>
+        <MdLock className="icon"/>
+        <input className="input-box-input" type={showPassword ? "text":"password"} placeholder="Password"/>
+         <span className="toggle-eye" onClick={()=> setShowPassword(prev=>!prev)}>
+        {showPassword ? <MdVisibilityOff/>
+          :<MdVisibility/>}</span>
     </div>
         <button className="auth-button">Create Account</button>
         </div>

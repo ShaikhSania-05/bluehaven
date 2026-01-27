@@ -1,6 +1,7 @@
 import habittracking from "../assets/images/habittracking.png";
 import moodlogtracking from "../assets/images/moodlogtracking.png";
 import Insights from "../assets/images/Insights.png";
+import {Link} from "react-router-dom";
 function Features() {
     return (
        <section 
@@ -21,7 +22,9 @@ function Features() {
                 tracking your daily habits and
                 routines mindfully.
             </p>
+            <Link to="/habittracker">
             <button>Explore</button>
+            </Link>
         </div>
         <div className="feature-card">
             <h3>Log your Mood</h3>
@@ -30,7 +33,9 @@ function Features() {
                 Reflect on your emotions
                 and understand patterns in your mood.
             </p>
+            <Link to="/moodlog">
             <button>Explore</button>
+            </Link>
         </div>
         <div className="feature-card">
             <h3>View Insights</h3>
@@ -39,7 +44,9 @@ function Features() {
                 Get gentle insights to
                 help you make healthier digital choices.
             </p>
+            <Link to="/insights">
             <button>Learn More</button>
+            </Link>
         </div>
        </div>
        </section>
