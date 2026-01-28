@@ -1,3 +1,5 @@
+import {FiPlus} from "react-icons/fi";
+import React from "react";
 function HabitTracker() {
   const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   const habits = [
@@ -6,13 +8,17 @@ function HabitTracker() {
     "Meditate",
     "Study",
     "Sketching",
+    "Completions"
   ];
 
   return (
     <div className="habit-page">
       <div className="habit-header">
         <h1 className="habit-title">Feature – Habit Tracker</h1>
-        <button className="add-habit-button"> + Add Habit</button>
+        <button className="add-habit-button"> 
+          <FiPlus size={18}/>
+          <span>Add Habits</span>
+        </button>
         <p className="habit-subtitle">Set Your Weekly Habits</p>
       </div>
       <div className="habit-grid">
@@ -26,6 +32,7 @@ function HabitTracker() {
         </div>
 
         {habits.map((habit, index) => (
+          <React.Fragment key={index}>
           <div className="habit-row" key={index}>
             <div className="habit-name">
               {habit}
@@ -39,6 +46,8 @@ function HabitTracker() {
               />
             ))}
           </div>
+          <div className="habit-divider"></div>
+          </React.Fragment>
         ))}
       </div>
 
@@ -48,5 +57,4 @@ function HabitTracker() {
     </div>
   );
 }
-
 export default HabitTracker;

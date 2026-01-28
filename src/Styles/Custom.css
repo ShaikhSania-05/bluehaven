@@ -241,7 +241,15 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     transition: transform 0.2s ease,box-shadow 0.2s ease;
+}
+.feature-card img {
+    max-width: 100%;
+    height: auto;
+    max-height: 230px;
+    margin-bottom: 1.2rem;
+    object-fit: contain;
 }
 .feature-card:hover {
     transform: translateY(-4px);
@@ -716,8 +724,9 @@ background: #84bcc2;
   color: #2477ac;
 }
 .habit-subtitle {
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   color: #2477ac;
+  font-family: "veryberrypro";
 }
 .add-habit-button {
   padding: 0.7rem 2.4rem;
@@ -726,6 +735,9 @@ background: #84bcc2;
   background: #9eced1;
   color: #2f6f7a;
   font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   cursor: pointer;
   font-family: "Ovo", serif;
   transition: all 0.3s ease;
@@ -735,41 +747,197 @@ background: #84bcc2;
 }
 .habit-grid {
   display: grid;
-  grid-template-columns: 220px repeat(7, 1fr);
-  gap: 1.2rem;
+  grid-template-columns: 300px repeat(7, 1fr);
+  gap: 2.2rem;
   align-items: center;
+  row-gap: 2.2rem;
+  column-gap: 2.5rem;
 }
 .habit-days {
-  font-size: 1.1rem;
+  text-transform: capitalize;
   color: #1f3b4d;
   text-align: center;
 }
 .habit-row {
-  display: grid;
-  grid-template-columns: 200px repeat(7,1fr);
+  font-size: 1.45rem;
+  font-weight: 600;
+  letter-spacing: 0.03rem;
+  color: #1f3b4d;
+  text-align: left;
+  display: contents;
   align-items: center;
-  gap: 10px;
-  padding: 12px 0;
+  gap: 15px;
+  padding: 22px 0;
   border-bottom: 1px solid #c9dede;
 }
 .habit-name {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  font-size: 1.1rem;
+  grid-column: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: #1f3b4d;
 }
 .habit-row input[type="checkbox"] {
-  width: 22px;
-  height: 22px;
+  width: 25px;
+  height: 25px;
   cursor: pointer;
   accent-color: #6fb3b8;
   justify-self: center;
 }
-.habit-divider {
-  grid-column: 1 / -1;
-  height: 1px;
-  background: #9eb7bf;
-  margin: 0.6rem 0;
+.habit-save {
+    margin-top: 4rem;
 }
-
+.habit-label {
+    font-size: 1.45rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    color: #1f3b4d;
+}
+.day-label {
+    font-size: 1.35rem;
+    font-weight: 500;
+    letter-spacing: 0.05rem;
+    color: #1f3b4d;
+    text-align: center;
+}
+.habit-divider {
+    grid-column: 1/-1
+}
+/* Base page wrapper */
+.text-page {
+  background-color: #f6f1e7;
+  min-height: 100vh;
+  padding: 4rem 1.5rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+/* Inner content container */
+.text-page > * {
+  width: 100%;
+  overflow: visible;
+}
+.text-page .content-section,
+.text-page .page-header {
+  max-width: 900px;
+  margin: 0 auto;
+}
+/* Page header */
+.page-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+/* Brand title */
+.brand-title {
+  font-family: 'VeryBerryPro';
+  font-size: 3.2rem;
+  color: #2477ac;
+  margin: 0;
+}
+/* Section blocks */
+.content-section {
+  margin-bottom: 3.5rem;
+}
+/* Section subtitles */
+.section-title {
+  font-family: 'Ovo',serif;
+  font-size: 1.6rem;
+  color: #2477ac;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+/* Body text */
+.section-text {
+  font-size: 1rem;
+  font-family: "Ovo",serif;
+  line-height: 1.9;
+  color: #0d2f44;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+/* Review page */
+.review-section {
+  max-width: 900px;
+  margin: 4rem auto;
+  text-align: center;
+}
+/* Title */
+.review-title {
+  font-family: 'Ovo', serif;
+  color: #2477ac;
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+}
+/* Description */
+.review-desc {
+  color: #0d2f44;
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+/* Slider container */
+.review-slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Window (mask) */
+.review-window {
+  overflow: hidden;
+  width: 100%;
+}
+/* Track */
+.review-track {
+  display: flex;
+}
+/* Review card */
+.review-slide {
+  min-width: 100%;
+  padding: 2.5rem;
+  box-sizing: border-box;
+}
+.review-quote {
+  font-family: 'Ovo', serif;
+  font-size: 1.2rem;
+  color: #0d2f44;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+.review-author {
+  font-size: 0.95rem;
+  color: #2477ac;
+  font-weight: 500;
+}
+/* Arrows */
+.review-arrow {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #2477ac;
+  padding: 0 1rem;
+  transition: transform 0.2s ease;
+}
+.review-arrow:hover {
+  transform: scale(1.15);
+}
+/*  Dots  */
+.review-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+.review-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #c7d6df;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.review-dots .dot.active {
+  background-color: #2477ac;
+  transform: scale(1.2);
+}

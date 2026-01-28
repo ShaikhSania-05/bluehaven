@@ -1,5 +1,5 @@
 import BluehavenLogo from "../assets/images/Bluehavenlogo.png";
-
+import {Link} from "react-router-dom";
 function Footer() {
     return (
         <footer className="footer-section">
@@ -18,28 +18,28 @@ function Footer() {
                 <div className="footer-column">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li>About</li>
-                        <li>Features</li>
-                        <li>Motivation</li>
-                        <li>FAQ</li>
+                        <li><Link to="/about">About</Link></li>
+                        <li><Link to="/">Features</Link></li>
+                        <li><Link to="/">Motivation</Link></li>
+                        <li><Link to="/support">FAQ</Link></li>
                     </ul>
                 </div>
                 {/*Support*/}
                 <div className="footer-column">
                     <h4>Support</h4>
                     <ul>
-                        <li>Help Center</li>
-                        <li>Report An Issue</li>
-                        <li>Feedback</li>
+                        <li><Link to="/support">Help Center</Link></li>
+                        <li><Link to="/support">Report An Issue,/</Link></li>
+                        <li><Link to="/support">Feedback</Link></li>
                     </ul>
                 </div>
                 {/*Policies*/}
                 <div className="footer-column">
                     <h4>Policies</h4>
                     <ul>
-                        <li>Privacy Policy</li>
-                        <li>Terms of Service</li>
-                        <li>Data & Security</li>
+                        <li><Link to="/policies">Privacy Policy</Link></li>
+                        <li><Link to="/policies">Terms of Service</Link></li>
+                        <li><Link to="/policies">Data & Security</Link></li>
                     </ul>
                 </div>
             </div>

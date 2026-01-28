@@ -1,4 +1,4 @@
- import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 function Motivation() {
   const [isJumping, setisJumping] = useState(false);
   const quotes = [
@@ -24,8 +24,6 @@ function Motivation() {
 
   const [current, setCurrent] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-
-  // Auto slide (pause on hover)
   useEffect(() => {
     if (isPaused) return;
 
@@ -77,7 +75,6 @@ function Motivation() {
              </p>
             ))}
             </div>
-        {/* DOTS - now inside the box */}
       <div className="motivation-dots">
         {quotes.map((_, index) => (
           <span

@@ -8,10 +8,10 @@ function Navbar() {
             <h1 className="logo brand-font">Bluehaven</h1>
             </div>
             <ul className="nav-links">
-                <li>Home</li>
-                <li>Features</li>
-                <li>Reviews</li>
-                <li>About</li>
+                <li><Link to= "/">Home</Link></li>
+                <li><Link to="/">Features</Link></li>
+                <li><Link to="/reviews">Reviews</Link></li>
+                <li><Link to="/about">About</Link></li>
             </ul>
             <Link to="/login">
             <button className="nav-button">
