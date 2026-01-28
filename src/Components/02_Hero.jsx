@@ -1,0 +1,31 @@
+import { Link } from "react-router-dom";
+import flatfish from "../assets/images/flatfish.png";
+import hardrock from "../assets/images/hardrock.png";
+
+function Hero() {
+  return (
+    <section className="hero-main">
+      <img src={flatfish} alt="" className="hero-flatfish"/>
+      <img src={hardrock} alt="" className="hero-hardrock"/>
+      <div className="hero-content">
+        <h1 className="hero-logo brand-font">BlueHaven</h1>
+
+        <p className="hero-tagline brand-font">
+          “Navigate your digital life with calm”
+        </p>
+
+        <p className="hero-description brand-font">
+          Understand thoughtful habit tracking, mood reflection
+          and focus for mindful living - all in one place.
+        </p>
+        <Link to="/signup">
+        <button className="hero-button">
+          Start Your Journey
+        </button>
+       </Link>
+      </div>
+    </section>
+  );
+}
+
+export default Hero;
