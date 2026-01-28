@@ -25,10 +25,12 @@ const Support = () => {
           Your feedback helps improve BlueHaven. Feel free to share suggestions,
           ideas, or thoughts about your experience.
         </p>
+        <div className="support-box">
         <textarea
           className="support-textarea"
           placeholder="Share your feedback here..."
         />
+        </div>
       </section>
       <section className="content-section">
         <h2 className="section-title">Report an Issue</h2>
@@ -36,10 +38,12 @@ const Support = () => {
           If you encounter any bugs or technical issues while using BlueHaven,
           you can report them here.
         </p>
+        <div className="support-box">
         <textarea
           className="support-textarea"
           placeholder="Describe the issue here..."
         />
+        </div>
       </section>
 
     </main>

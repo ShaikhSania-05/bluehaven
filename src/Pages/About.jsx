@@ -6,7 +6,7 @@ const About = () => {
         <h1 className="brand-title">BlueHaven</h1>
       </header>
       <section className="content-section">
-        <h2 className="section-title">What is BlueHaven</h2>
+        <h2 className="section-title">What is BlueHaven?</h2>
         <p className="section-text">
           BlueHaven is a mindful productivity platform designed to help users
           build meaningful habits, reflect on their emotional well-being, and

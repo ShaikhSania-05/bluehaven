@@ -19,8 +19,8 @@ function Footer() {
                     <h4>Quick Links</h4>
                     <ul>
                         <li><Link to="/about">About</Link></li>
-                        <li><Link to="/">Features</Link></li>
-                        <li><Link to="/">Motivation</Link></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#motivation">Motivation</a></li>
                         <li><Link to="/support">FAQ</Link></li>
                     </ul>
                 </div>
@@ -29,7 +29,7 @@ function Footer() {
                     <h4>Support</h4>
                     <ul>
                         <li><Link to="/support">Help Center</Link></li>
-                        <li><Link to="/support">Report An Issue,/</Link></li>
+                        <li><Link to="/support">Report An Issue</Link></li>
                         <li><Link to="/support">Feedback</Link></li>
                     </ul>
                 </div>

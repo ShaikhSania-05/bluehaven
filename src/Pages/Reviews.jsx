@@ -1,8 +1,5 @@
 import { useState, useEffect } from "react";
 function Reviews() {
-  <header className="page-header">
-  <h1 className="brand-title">BlueHaven</h1>
-  </header>
   const [isJumping, setisJumping] = useState(false);
   const reviews = [
     {
@@ -46,12 +43,15 @@ function Reviews() {
   }, [isPaused, reviews.length]);
 
   return (
+    <>
+    <header className="page-header">
+  <h1 className="brand-title">BlueHaven</h1>
+   </header>
     <section className="review-section">
       <h2 className="review-title brand-font">What our user's say</h2>
       <p className="review-desc">
         BlueHaven supports habit building, emotional awareness, mindful productivity, and personal growth. 
       </p>
-
       <div className="review-slider">
         {/* LEFT ARROW */}
         <button  className="review-arrow"
@@ -61,7 +61,6 @@ function Reviews() {
         >
            ‹
         </button>
-
         {/* SLIDE AREA */}
         <div
           className="review-window"
@@ -130,6 +129,7 @@ function Reviews() {
     </p>
    </section>
     </section>
+    </>
   );
 }
 export default Reviews;
