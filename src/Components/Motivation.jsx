@@ -43,15 +43,6 @@ function Motivation() {
       </p>
 
       <div className="motivation-slider">
-        {/* LEFT ARROW */}
-        <button  className="motivation-arrow"
-          onClick={() =>
-            setCurrent((current - 1 + quotes.length) % quotes.length)
-          }
-        >
-           ‹
-        </button>
-
         {/* SLIDE AREA */}
         <div
           className="motivation-window"
@@ -85,14 +76,6 @@ function Motivation() {
         ))}
       </div>
       </div>
-        {/* RIGHT ARROW */}
-        <button className="motivation-arrow"
-          onClick={() => 
-            setCurrent((current + 1) % quotes.length) 
-        }
-        >
-           ›
-        </button>
       </div>
     </section>
   );

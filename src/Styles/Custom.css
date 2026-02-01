@@ -347,21 +347,6 @@
     font-size: 1.1rem;
     line-height: 1.6;
 }
-
-/* Arrows */
-.motivation-arrow {
-  background: none;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  color: #2477ac;
-  opacity: 0.6;
-  transition: opacity 0.2s ease;
-}
-.motivation-arrow:hover {
-    opacity: 1;
-}
-
 /* Dots */
 .motivation-dots {
   position: absolute;
@@ -371,7 +356,6 @@
   display: flex;
   gap: 6px;
 }
-
 .dot {
   display: inline-block;
   width: 6px;
@@ -383,7 +367,6 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
 .dot.active {
   background-color: #2477ac;
   opacity: 1;
@@ -426,9 +409,57 @@
 .cta-button:active {
     background-color: #1f6694;
 }
+/* ===== FAQ Section ===== */
+.faq-section {
+  padding: 4rem 2rem;
+  background: #f6f1e7;
+  text-align: center;
+}
+.faq-title {
+  font-size: 2.6rem;
+  color: #2477ac;
+  font-family: "VeryBerryPro";
+  margin-bottom: 0.6rem;
+}
+.faq-subtitle {
+  font-size: 1.1rem;
+  color: #0d2f44;
+  margin-bottom: 3rem;
+  font-family: "Ovo", serif;
+}
+.faq-list {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+.faq-item {
+  background: #ffffff;
+  padding: 1.8rem 2rem;
+  border-radius: 16px;
+  text-align: left;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+.faq-question {
+  font-size: 1.2rem;
+  color: #2477ac;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+}
+.faq-answer {
+  font-size: 1rem;
+  color: #0d2f44;
+  line-height: 1.6;
+}
 /* ===== Footer Section ===== */
+.footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    margin-top: 5rem;
+    padding-top: 4rem;
+}
 .footer-section {
-   background-color: #f6f1e7;
+   background-color: #f9fcfd;
    padding: 3rem 1.5rem 1.5rem;
    color:#0d2f44;
 }
@@ -500,18 +531,7 @@
     font-size: 0.8rem;
     text-align: center;
     color: #555;
-}
-.contact-label {
-    font-weight: 600;
-    margin-bottom: 6px;
-}
-.contact-email {
-    font-size: 0.9rem;
-    opacity: 0.85;
-}
-.email-icon {
-    margin-right: 6px;
-    vertical-align: middle;
+    background-color: #f9fcfd;
 }
 /* ===== Auth Pages ===== */
 .auth-page {
@@ -546,6 +566,11 @@ margin-bottom: 2rem;
     display: flex;
     align-items: center;
     gap: 0.6rem;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+.input-box:focus-within {
+    border: 2px solid #5aaeb0;
+    box-shadow: 0 0 0 3px rgba (90,174,176,0.35);
 }
 .input-box-input {
     border: none;
@@ -582,10 +607,16 @@ margin-bottom: 2rem;
  font-size: 22px;
  color: #4b6cb7;
 }
+.input-box:focus-within .icon {
+    color: #3553a3 ;
+}
 .icon-person {
     width: 1.7rem;
     height: 1.7rem;
     color: #4b6cb7;
+}
+.input-box:focus-within .icon-person {
+    color: #3553a3;
 }
 /* ===== Insights Page ===== */
 .insights-page {
@@ -635,7 +666,7 @@ margin-bottom: 2rem;
 }
 /* ===== MoodLog Page ===== */
 .moodlog-page {
-    padding: 3rem 4rem;
+    padding: 2.5rem 4rem;
     background: #f6f1e7;
     font-family: "Ovo",serif;
 }
@@ -650,39 +681,72 @@ margin-bottom: 2rem;
     font-size: 2.6rem;
     color: #2477ac;
 }
-.moodlog-subtitles {
-    font-size: 1.2rem;
+.moodlog-subtitle {
+    font-size: 2rem;
     color: #2477ac;
+    font-family: "veryberrypro";
 }
 .moodlog-grid {
-    display: grid;
-    grid-template-columns: 120px repeat(7,1fr);
-    gap: 1.6rem;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 .moodlog-emoji-row {
-    display: contents;
+    display: flex;
+    gap: 1.2rem;
+    justify-items: center;
+    margin-bottom: 0.8rem;
 }
 .mood-icon {
-    font-size: 2rem;
+    font-size: 1.6rem;
+    width: 50px;
+    height: 50px;
     color: #4b6cb7;
-    opacity: 0.85;
-    text-align: center;
+    background: #9eced1;
+    display: flex;
+    justify-content: center;
+    opacity: 1;
+    align-items: center;
     margin-bottom: 0.6rem;
+    transition: transform 0.2s ease,opacity 0.2s ease;
+}
+.mood-icon svg {
+    width: 25px;
+    height: 25px;
+    min-width: 25px;
+    min-height: 25px;
+    display: inline-block;
+    fill: #4b6cb7;
+}
+.mood-icon svg path {
+    fill: #4b6cb7;
+}
+.mood-icon:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+.mood-icons {
+    display: contents;
 }
 .empty-cell {
     height: 1px;
 }
 .moodlog-row {
-    display: contents;
+    display: grid;
+    grid-template-columns: 80px repeat(6, 1fr);
+    column-gap: 1.4rem;
+    align-items: center;
 }
 .day-label {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     color: #1f3b4d;
+    text-align: right;
+    padding-right: 0.5rem;
+    font-weight: 600;
 }
 .moodlog-row input[type="checkbox"] {
-    width: 22px;
-    height: 22px;
+    width: 15px;
+    height: 15px;
     cursor: pointer;
     accent-color: #6fb3b8;
     justify-self: center;
@@ -728,26 +792,21 @@ background: #84bcc2;
   color: #2477ac;
   font-family: "veryberrypro";
 }
-.add-habit-button {
-  padding: 0.7rem 2.4rem;
-  border-radius: 40px;
-  border: none;
-  background: #9eced1;
-  color: #2f6f7a;
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-  font-family: "Ovo", serif;
-  transition: all 0.3s ease;
+.habit-delete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #9bbcbc;
+    transition: 0.2s ease;
 }
-.add-habit-button:hover {
-  background: #84bcc2;
+.habit-delete:hover {
+    color: #226fa0;
+    transform: scale(1.15);
 }
 .habit-grid {
   display: grid;
-  grid-template-columns: 300px repeat(7, 1fr);
+  grid-template-columns: 300px repeat(7, 1fr) 40px;
   gap: 2.2rem;
   align-items: center;
   row-gap: 2.2rem;
@@ -799,6 +858,20 @@ background: #84bcc2;
     letter-spacing: 0.05rem;
     color: #1f3b4d;
     text-align: center;
+}
+.add-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #9bbcbc;
+    font-size: 1.6rem;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+.add-column:hover {
+    color: #226fa0;
+    transform: scale(1.15);
 }
 .habit-divider {
     grid-column: 1/-1
@@ -932,19 +1005,6 @@ background: #84bcc2;
   font-size: 0.95rem;
   color: #2477ac;
   font-weight: 500;
-}
-/* Arrows */
-.review-arrow {
-  background: none;
-  border: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  color: #2477ac;
-  padding: 0 1rem;
-  transition: transform 0.2s ease;
-}
-.review-arrow:hover {
-  transform: scale(1.15);
 }
 /*  Dots  */
 .review-dots {

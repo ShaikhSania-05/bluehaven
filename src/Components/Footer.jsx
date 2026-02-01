@@ -19,8 +19,8 @@ function Footer() {
                     <h4>Quick Links</h4>
                     <ul>
                         <li><Link to="/about">About</Link></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#motivation">Motivation</a></li>
+                        <li><Link to="/">Features</Link></li>
+                        <li><Link to="/">Motivation</Link></li>
                         <li><Link to="/support">FAQ</Link></li>
                     </ul>
                 </div>
@@ -45,13 +45,6 @@ function Footer() {
             </div>
             {/*Bottom Bar*/}
             <div className="footer-bottom">
-                <p className="contact-label">Contact</p>
-                <p className="contact-email"> 
-                    <span className="email-icon">📧</span>
-                    shaikhsania1251@gmail.com</p>
-                    <p className="contact-email"> 
-                        <span className="email-icon">📧</span>
-                        aqsaanam.009@gmail.com</p>
                         <p>
                            © 2025-2026 Digital Well-Being Tracker. Developed & Designed By Shaikh Sania & Shaikh Aqsa.
                         </p>
