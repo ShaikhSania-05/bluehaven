@@ -586,6 +586,9 @@ margin-bottom: 2rem;
     align-items: center;
     justify-content: center;
     font-size: 1.2rem;
+    background: none;
+    border: none;
+    padding: 0;
     line-height: 1;
 }
 .toggle-eye svg {
@@ -876,6 +879,93 @@ background: #84bcc2;
 .habit-divider {
     grid-column: 1/-1
 }
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+/* Modal box */
+.modal-box {
+  background: #f8f6f2; /* soft cream */
+  padding: 24px 28px;
+  border-radius: 14px;
+  width: 90%;
+  max-width: 360px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  animation: modalFadeIn 0.25s ease;
+}
+/* Title */
+.modal-box h2 {
+  margin-bottom: 16px;
+  font-size: 1.4rem;
+  color: #2c4a52;
+  font-weight: 600;
+}
+/* Input */
+.modal-box input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #cfd8dc;
+  font-size: 0.95rem;
+  outline: none;
+  margin-bottom: 18px;
+}
+.modal-box input:focus {
+  border-color: #5fa8d3;
+}
+/* Buttons container */
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+/* Add button */
+.modal-actions button:first-child {
+  flex: 1;
+  background: #5fa8d3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: 500;
+}
+/* Cancel button */
+.modal-actions button:last-child {
+  flex: 1;
+  background: transparent;
+  color: #5fa8d3;
+  border: 1px solid #5fa8d3;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+}
+/* Hover effects */
+.modal-actions button:hover {
+  opacity: 0.9;
+}
+/* Animation */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 /* Base page wrapper */
 .text-page {
   background-color: #f6f1e7;
@@ -938,6 +1028,28 @@ background: #84bcc2;
     color: #0d2f44;
     resize: vertical;
     outline: none;
+}
+.support-submit {
+  margin-top: 1.5rem;
+  padding: 0.7rem 1.8rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #7bb8f5, #9fd3ff);
+  color: #ffffff;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s;
+}
+.support-submit:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(123, 184, 245, 0.35);
+  opacity: 0.95;
+}
+.support-submit:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(123, 184, 245, 0.25);
 }
 /* Body text */
 .section-text {

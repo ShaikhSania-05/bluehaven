@@ -1,4 +1,17 @@
+import { useState } from "react";
+
 const Support = () => {
+  const [feedback,setFeedback] =
+  useState("");
+const handleSubmit = () => {
+  if (!feedback.trim()) {
+    alert("Please enter feedback before submitting");
+    return;
+  }
+  console.log("feedback:", feedback)
+  alert("Feedback submitted successfully");
+  setFeedback("");
+};
   return (
     <main className="text-page support-page">
       <header className="page-header">
@@ -20,11 +33,14 @@ const Support = () => {
         <div className="support-box">
         <textarea
           className="support-textarea"
-          placeholder="Share your feedback or describe any issue here..."
-        />
+          value={feedback}
+          onChange={(e) =>
+          setFeedback(e.target.value)}
+          placeholder="Share your feedback or describe any issue here..."></textarea>
+        <button 
+        className="support-submit" onClick={handleSubmit}>Submit</button>
         </div>
       </section>
-
     </main>
   );
 };

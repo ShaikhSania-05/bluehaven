@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { FiPlus, FiTrash2 } from "react-icons/fi";
 
 function HabitTracker() {
+  const [showModal, setShowModal] = useState(false);
+  const [newHabit, setNewHabit] = useState("");
   const [habits, setHabits] = useState(() => {
     const savedHabits =
     localStorage.getItem("habits");
@@ -24,12 +26,19 @@ function HabitTracker() {
   const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   const addHabit = () => {
-    const habit = prompt("Enter habit name");
-    if (!habit || !habit.trim()) return;
-
-    setHabits((prev) => [...prev, habit.trim()]);
+    setShowModal(true);
   };
+  const confirmAddHabit = () => {
+    if (!newHabit.trim()) return;
 
+    setHabits(prev => [...prev,newHabit.trim()]);
+    setNewHabit("");
+    setShowModal(false);
+  };
+  const cancelAddHabit = () => {
+    setNewHabit("");
+    setShowModal(false);
+  };
   const deleteHabit = (indexToDelete) => {
     setHabits((prev) =>
       prev.filter((_, index) => index !== indexToDelete)
@@ -77,10 +86,26 @@ function HabitTracker() {
           </div>
         ))}
       </div>
+      
+      {showModal && (
+  <div className="modal-overlay">
+    <div className="modal-box">
+      <h2>Add your habit</h2>
 
-      <div className="habit-save">
-        <button className="save-button">Save</button>
+      <input
+        type="text"
+        value={newHabit}
+        onChange={(e) => setNewHabit(e.target.value)}
+        placeholder="Enter habit name"
+      />
+
+      <div className="modal-actions">
+        <button onClick={confirmAddHabit}>Add</button>
+        <button onClick={cancelAddHabit}>Cancel</button>
       </div>
+    </div>
+  </div>
+)}
     </div>
   );
 }

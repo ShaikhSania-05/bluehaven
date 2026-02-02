@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   FaSmile,
   FaRegSmile,
@@ -10,7 +10,9 @@ import {
 
 function Moodlog() {
   const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-
+  const handleSave = () => {
+    console.log("Mood log saved")
+  };
   const [moods, setMoods] = useState(() => {
     const saved = localStorage.getItem("moods");
     return saved
@@ -74,7 +76,8 @@ function Moodlog() {
       </div>
 
       <div className="moodlog-save">
-        <button className="save-button">Save</button>
+        <button className="save-button"
+         onClick={handleSave}>Save</button>
       </div>
     </div>
   );
