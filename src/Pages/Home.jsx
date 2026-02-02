@@ -14,8 +14,8 @@ function Home() {
       <Features />
       <Motivation />
     </div>
+     <FAQ />
     <CTA />
-    <FAQ />
     <Footer />
     </>
   );
