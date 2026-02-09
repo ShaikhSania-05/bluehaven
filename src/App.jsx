@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 // Components 
-import Navbar from "./Components/01_Navbar";
-import Footer from "./Components/07_Footer";
+import Navbar from "./Components/Navbar";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
@@ -15,6 +14,7 @@ import Policies from "./Pages/Policies";
 function App () {
   return (
     <>
+    <Navbar></Navbar>
     <Routes>
       <Route path="/" element={<Home/>} />
       <Route path="/login" element={<Login/>} />

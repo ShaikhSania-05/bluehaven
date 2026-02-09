@@ -53,14 +53,6 @@ function Reviews() {
         BlueHaven supports habit building, emotional awareness, mindful productivity, and personal growth. 
       </p>
       <div className="review-slider">
-        {/* LEFT ARROW */}
-        <button  className="review-arrow"
-          onClick={() =>
-            setCurrent((current - 1 + reviews.length) % reviews.length)
-          }
-        >
-           ‹
-        </button>
         {/* SLIDE AREA */}
         <div
           className="review-window"
@@ -100,14 +92,6 @@ function Reviews() {
         ))}
       </div>
       </div>
-        {/* RIGHT ARROW */}
-        <button className="review-arrow"
-          onClick={() => 
-            setCurrent((current + 1) % reviews.length) 
-        }
-        >
-           ›
-        </button>
       </div>
       <section className="content-section">
         <h2 className="section-title">Why Users Trust BlueHaven</h2>

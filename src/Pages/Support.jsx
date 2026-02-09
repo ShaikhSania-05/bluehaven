@@ -1,4 +1,17 @@
+import { useState } from "react";
+
 const Support = () => {
+  const [feedback,setFeedback] =
+  useState("");
+const handleSubmit = () => {
+  if (!feedback.trim()) {
+    alert("Please enter feedback before submitting");
+    return;
+  }
+  console.log("feedback:", feedback)
+  alert("Feedback submitted successfully");
+  setFeedback("");
+};
   return (
     <main className="text-page support-page">
       <header className="page-header">
@@ -12,40 +25,22 @@ const Support = () => {
         </p>
       </section>
       <section className="content-section">
-        <h2 className="section-title">FAQ</h2>
-        <p className="section-text">• What is BlueHaven?</p>
-        <p className="section-text">• Is BlueHaven free to use?</p>
-        <p className="section-text">• Do I need an account to access features?</p>
-        <p className="section-text">• Is my data saved securely?</p>
-        <p className="section-text">• Can I edit or remove my entries?</p>
-      </section>
-      <section className="content-section">
-        <h2 className="section-title">Feedback</h2>
+        <h2 className="section-title">Support</h2>
         <p className="section-text">
           Your feedback helps improve BlueHaven. Feel free to share suggestions,
-          ideas, or thoughts about your experience.
+          ideas, or thoughts about your experience.You can also share if you encounter any bugs or technical issues while using Bluehaven 
         </p>
         <div className="support-box">
         <textarea
           className="support-textarea"
-          placeholder="Share your feedback here..."
-        />
+          value={feedback}
+          onChange={(e) =>
+          setFeedback(e.target.value)}
+          placeholder="Share your feedback or describe any issue here..."></textarea>
+        <button 
+        className="support-submit" onClick={handleSubmit}>Submit</button>
         </div>
       </section>
-      <section className="content-section">
-        <h2 className="section-title">Report an Issue</h2>
-        <p className="section-text">
-          If you encounter any bugs or technical issues while using BlueHaven,
-          you can report them here.
-        </p>
-        <div className="support-box">
-        <textarea
-          className="support-textarea"
-          placeholder="Describe the issue here..."
-        />
-        </div>
-      </section>
-
     </main>
   );
 };

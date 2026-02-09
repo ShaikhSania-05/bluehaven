@@ -1,37 +1,52 @@
 import {Link} from "react-router-dom";
 import {MdPerson,MdMail,MdLock,MdVisibility,MdVisibilityOff} from "react-icons/md";
 import {useState} from "react";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
     const [showPassword, setShowPassword]=useState(false);
+    const [username,SetUsername] = useState("");
+    const [email,SetEmail] = useState("");
+    const [password,SetPassword] = useState("");
+    const navigate = useNavigate();
+    const handleSignup = (e) => {
+        e.preventDefault();
+    console.log("Signup data:", username, email, password);
+    localStorage.setItem("token","dummy-token");
+    navigate ("/");
+ };
     return (
     <div className="auth-page">
     <h1 className="auth-logo">BlueHaven</h1>
     <p className="auth-subtitle">
          Let's get started with mindful living ~
     </p>
-        <div className="auth-form">
+        <form className="auth-form"
+        onSubmit={handleSignup}>
         <div className="input-box">
         <MdPerson className="icon-person"/>
-        <input className="input-box-input" type="text" placeholder="User name"/>
+        <input className="input-box-input" type="text" placeholder="User name" value={username} onChange={(e) => SetUsername(e.target.value)}/>
     </div>
         <div className="input-box">
         <MdMail className="icon"/>
-        <input className="input-box-input" type="email" placeholder="Email Address"/>
+        <input className="input-box-input" type="email" placeholder="Email Address" value={email} onChange={(e) => SetEmail(e.target.value)}/>
         </div>
         <div className="input-box">
         <MdLock className="icon"/>
-        <input className="input-box-input" type={showPassword ? "text":"password"} placeholder="Password"/>
-         <span className="toggle-eye" onClick={()=> setShowPassword(prev=>!prev)}>
+        <input className="input-box-input" type={showPassword ? "text":"password"} placeholder="Password" 
+        value={password} onChange={(e) => SetPassword(e.target.value)}/>
+         <button
+         type="button" className="toggle-eye" onClick={()=> setShowPassword(prev=>!prev)}>
         {showPassword ? <MdVisibilityOff/>
-          :<MdVisibility/>}</span>
-    </div>
-        <button className="auth-button">Create Account</button>
-        </div>
+          :<MdVisibility/>}
+          </button>
+          </div>
+        <button className="auth-button" type="submit">Create Account</button>
+        </form>
     <p className="auth-switch">
         Already have an account? <Link to="/login">Log in</Link>
     </p>
  </div>
     );
-};
+}
 export default Signup;
