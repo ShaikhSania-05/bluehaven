@@ -9,12 +9,36 @@ function Signup() {
     const [email,SetEmail] = useState("");
     const [password,SetPassword] = useState("");
     const navigate = useNavigate();
-    const handleSignup = (e) => {
-        e.preventDefault();
-    console.log("Signup data:", username, email, password);
-    localStorage.setItem("token","dummy-token");
-    navigate ("/");
- };
+    const handleSignup = async (e) => {
+  e.preventDefault();
+
+  try {
+    const res = await fetch("http://localhost:5000/api/auth/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username,
+        email: email,
+        password: password,
+      }),
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      alert("User created successfully. Please Login.")
+
+      navigate("/login");
+    } else {
+      alert(data.message || "Signup failed");
+    }
+  } catch (err) {
+    console.error("Signup error:", err);
+  }
+};
+
     return (
     <div className="auth-page">
     <h1 className="auth-logo">BlueHaven</h1>

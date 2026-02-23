@@ -6,12 +6,12 @@ const router = express.Router();
 
 router.use(authMiddleware);
 
-router.post("/", createHabit);
+router.post("/", createHabits);
 
 router.get("/", getHabits);
 
 router.put("/:id", updateHabits);
 
-router.delete("/:id", deleteHabits)
+router.delete("/:id", deleteHabits);
 
 export default router;

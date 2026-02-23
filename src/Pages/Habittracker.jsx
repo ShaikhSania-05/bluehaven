@@ -4,45 +4,75 @@ import { FiPlus, FiTrash2 } from "react-icons/fi";
 function HabitTracker() {
   const [showModal, setShowModal] = useState(false);
   const [newHabit, setNewHabit] = useState("");
-  const [habits, setHabits] = useState(() => {
-    const savedHabits =
-    localStorage.getItem("habits");
-    return savedHabits
-    ? window.JSON.parse(savedHabits)
-    :[
-    "Reading",
-    "Journaling",
-    "Meditate",
-    "Study",
-    "Sketching",
-    "Completions",
-    ];
-});
- useEffect(() => {
-   localStorage.setItem("habits",
-    window.JSON.stringify(habits));
-}, [habits]);
-
-  const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-
+  const [habits, setHabits] = useState([]);
   const addHabit = () => {
     setShowModal(true);
   };
-  const confirmAddHabit = () => {
+  const cancelAddHabit = () => {
+    setShowModal(false);
+    setNewHabit("");
+  };
+  const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+  const token = localStorage.getItem("token");
+  const fetchHabits = async () => {
+    try {
+      const res = await fetch("http://localhost:5000/api/habits", {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const data = await res.json();
+      setHabits(data);
+    } catch (err) {
+      console.error("Error fetching habits:", err);
+    }
+  };
+  useEffect(() => {
+    fetchHabits();
+  }, []);
+
+  const confirmAddHabit = async () => {
     if (!newHabit.trim()) return;
 
-    setHabits(prev => [...prev,newHabit.trim()]);
-    setNewHabit("");
-    setShowModal(false);
+    try {
+      const res = await fetch("http://localhost:5000/api/habits", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          title: newHabit.trim(),
+          days: [],
+        }),
+      });
+
+      const data = await res.json();
+      setHabits((prev) => [...prev, data]);
+
+      setNewHabit("");
+      setShowModal(false);
+    } catch (err) {
+      console.error("Error adding habit:", err);
+    }
   };
-  const cancelAddHabit = () => {
-    setNewHabit("");
-    setShowModal(false);
-  };
-  const deleteHabit = (indexToDelete) => {
-    setHabits((prev) =>
-      prev.filter((_, index) => index !== indexToDelete)
-    );
+
+  const deleteHabit = async (id) => {
+    try {
+      await fetch(`http://localhost:5000/api/habits/${id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      setHabits((prev) => prev.filter((habit) => habit._id !== id));
+    } catch (err) {
+      console.error("Error deleting habit:", err);
+    }
   };
 
   return (
@@ -66,22 +96,24 @@ function HabitTracker() {
         </div>
 
         
-        {habits.map((habit, index) => (
-          <div className="habit-row" key={index}>
-            <div className="habit-name">{habit}</div>
+        {habits.map((habit) => (
+          <div className="habit-row" key={habit._id}>
+            <div className="habit-name">{habit.title}</div>
 
             {days.map((day) => (
               <input
                 key={day}
                 type="checkbox"
                 className="habit-checkbox"
+                checked={habit.days?.includes(day)}
+                readOnly
               />
             ))}
 
             <FiTrash2
               className="habit-delete"
               title="Delete habit"
-              onClick={() => deleteHabit(index)}
+              onClick={() => deleteHabit(habit._id)}
             />
           </div>
         ))}

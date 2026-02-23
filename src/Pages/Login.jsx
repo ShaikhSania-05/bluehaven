@@ -7,12 +7,32 @@ function Login() {
     const [identifier, SetIdentifier] = useState("");
     const [password, SetPassword] = useState("");
     const navigate = useNavigate();
-    const handleLogin = (e) => {
-        e.preventDefault();
-    console.log("Signup data:", identifier, password);
-    localStorage.setItem("token","dummy-token");
-    navigate ("/");
- };
+    const handleLogin = async (e) => {
+  e.preventDefault();
+
+  try {
+    const res = await fetch("http://localhost:5000/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        identifier: identifier,
+        password: password,
+      }),
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      localStorage.setItem("token", data.token);
+      navigate("/");
+    } else {
+      alert(data.message);
+    }
+  } catch (err) {
+    console.error("Login error:", err);
+  }
+};
+
 return (
     <div className="auth-page">
     <h1 className="auth-logo">BlueHaven</h1>
