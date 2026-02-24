@@ -1,4 +1,4 @@
-import Habit from "../habit.js";
+import Habit from "../models/habit.js";
 
 export const createHabits = async (req, res) => {
   try {

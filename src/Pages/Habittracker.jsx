@@ -74,6 +74,29 @@ function HabitTracker() {
       console.error("Error deleting habit:", err);
     }
   };
+  const toggleHabitDay = async (habitId, day) => {
+  const habit = habits.find(h => h._id === habitId);
+
+  const updatedDays = habit.days?.includes(day)
+    ? habit.days.filter(d => d !== day)
+    : [...(habit.days || []), day];
+
+  setHabits(prev =>
+    prev.map(h =>
+      h._id === habitId ? { ...h, days: updatedDays } : h
+    )
+  );
+  
+  await fetch(`http://localhost:5000/api/habits/${habitId}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ days: updatedDays }),
+  });
+};
+
 
   return (
 
@@ -106,7 +129,8 @@ function HabitTracker() {
                 type="checkbox"
                 className="habit-checkbox"
                 checked={habit.days?.includes(day)}
-                readOnly
+                onChange={() =>
+                  toggleHabitDay(habit._id, day)}
               />
             ))}
 

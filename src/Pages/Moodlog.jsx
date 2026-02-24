@@ -10,27 +10,9 @@ import {
 
 function Moodlog() {
   const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-  const handleSave = () => {
-    console.log("Mood log saved")
-  };
-  const [moods, setMoods] = useState(() => {
-    const saved = localStorage.getItem("moods");
-    return saved
-      ? JSON.parse(saved)
-      : {
-          Mon: null,
-          Tue: null,
-          Wed: null,
-          Thu: null,
-          Fri: null,
-          Sat: null,
-          Sun: null,
-        };
-  });
 
-  useEffect(() => {
-    localStorage.setItem("moods", JSON.stringify(moods));
-  }, [moods]);
+  const [moods, setMoods] = useState({});
+  const token = localStorage.getItem("token");
 
   const moodIcons = [
     { key: "happy", icon: <FaSmile /> },
@@ -40,6 +22,39 @@ function Moodlog() {
     { key: "cry", icon: <FaSadTear /> },
     { key: "angry", icon: <FaAngry /> },
   ];
+   
+  useEffect(() => {
+  const token = localStorage.getItem("token");
+  if (!token) return;
+
+  const fetchMoods = async () => {
+    try {
+      const res = await fetch("http://localhost:5000/api/moods", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (!res.ok) {
+        console.error("Failed to fetch moods");
+        return;
+      }
+
+      const data = await res.json();
+
+      const moodMap = {};
+      data.forEach((item) => {
+        moodMap[item.day] = item.mood;
+      });
+
+      setMoods(moodMap);
+    } catch (err) {
+      console.error("Error fetching moods:", err);
+    }
+  };
+
+  fetchMoods();
+}, []); 
 
   return (
     <div className="moodlog-page">
@@ -60,24 +75,44 @@ function Moodlog() {
                   className={`mood-icon ${
                     moods[day] === mood.key ? "active" : ""
                   }`}
-                  onClick={() =>
-                    setMoods((prev) => ({
-                      ...prev,
-                      [day]: mood.key,
-                    }))
-                  }
-                >
-                  {mood.icon}
-                </button>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
+                  onClick={async () => {
+                  if (!token) return;
 
-      <div className="moodlog-save">
-        <button className="save-button"
-         onClick={handleSave}>Save</button>
+                   try {
+                  const res = await fetch("http://localhost:5000/api/moods", {
+               method: "POST",
+              headers: {
+              "Content-Type": "application/json",
+               Authorization: `Bearer ${token}`,
+            },
+               body: JSON.stringify({
+             day,
+          mood: mood.key,
+       }),
+      });
+
+         if (!res.ok) {
+         console.error("Failed to save mood");
+            return;
+       }
+
+    const data = await res.json();
+
+            setMoods((prev) => ({
+            ...prev,
+          [day]: data.mood,
+           }));
+          } catch (err) {
+            console.error("Error saving mood:", err);
+        }
+        }}
+      >
+         {mood.icon}
+      </button>
+   ))}
+        </div>
+     </div>
+   ))}
       </div>
     </div>
   );

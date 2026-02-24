@@ -704,7 +704,7 @@ margin-bottom: 2rem;
     font-size: 1.6rem;
     width: 50px;
     height: 50px;
-    color: #4b6cb7;
+    color: #6f8ccf;
     background: #9eced1;
     display: flex;
     justify-content: center;
@@ -713,16 +713,18 @@ margin-bottom: 2rem;
     margin-bottom: 0.6rem;
     transition: transform 0.2s ease,opacity 0.2s ease;
 }
-.mood-icon svg {
+.mood-icon.active {
+    background: #84bcc2;
+    color: #364e91;
+    transform: scale(1.05);
+}
+.mood-icon svg, .mood-icon svg path {
     width: 25px;
     height: 25px;
     min-width: 25px;
     min-height: 25px;
     display: inline-block;
-    fill: #4b6cb7;
-}
-.mood-icon svg path {
-    fill: #4b6cb7;
+    fill: currentColor;
 }
 .mood-icon:hover {
     transform: scale(1.1);
@@ -753,25 +755,6 @@ margin-bottom: 2rem;
     cursor: pointer;
     accent-color: #6fb3b8;
     justify-self: center;
-}
-.moodlog-save {
-    margin-top: 4rem;
-    display: flex;
-    justify-content: flex-end;
-}
-.save-button {
-    padding: 0.8rem 2.8rem;
-    border: none;
-    border-radius: 40px;
-    background: #9eced1;
-    color: #2f6f7a;
-    font-size: 1.1rem;
-    font-family: "Ovo",serif;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.save-button:hover {
-background: #84bcc2;
 }
 /* ===== Habit Tracker Page ===== */
 .habit-page {

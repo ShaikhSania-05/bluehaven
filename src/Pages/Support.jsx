@@ -1,17 +1,40 @@
 import { useState } from "react";
 
 const Support = () => {
-  const [feedback,setFeedback] =
-  useState("");
-const handleSubmit = () => {
-  if (!feedback.trim()) {
-    alert("Please enter feedback before submitting");
-    return;
-  }
-  console.log("feedback:", feedback)
-  alert("Feedback submitted successfully");
-  setFeedback("");
-};
+  const [feedback, setFeedback] = useState("");
+  const token = localStorage.getItem("token");
+
+  const handleSubmit = async () => {
+    if (!feedback.trim()) {
+      alert("Please enter feedback before submitting");
+      return;
+    }
+
+    try {
+      const res = await fetch("http://localhost:5000/api/support", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ message: feedback }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        alert(data.message);
+        return;
+      }
+
+      alert("Feedback submitted successfully");
+      setFeedback("");
+    } catch (error) {
+      console.error("Error submitting feedback:", error);
+      alert("Something went wrong");
+    }
+  };
+
   return (
     <main className="text-page support-page">
       <header className="page-header">
