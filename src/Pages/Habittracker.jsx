@@ -17,7 +17,8 @@ function HabitTracker() {
   const token = localStorage.getItem("token");
   const fetchHabits = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/habits", {
+      const res = await fetch(
+    `${import.meta.env.VITE_API_URL}/api/habits`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -38,7 +39,8 @@ function HabitTracker() {
     if (!newHabit.trim()) return;
 
     try {
-      const res = await fetch("http://localhost:5000/api/habits", {
+      const res = await fetch(
+      `${import.meta.env.VITE_API_URL}/api/habits`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -62,12 +64,15 @@ function HabitTracker() {
 
   const deleteHabit = async (id) => {
     try {
-      await fetch(`http://localhost:5000/api/habits/${id}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      await fetch(
+  `${import.meta.env.VITE_API_URL}/api/habits/${id}`,
+  {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+);
 
       setHabits((prev) => prev.filter((habit) => habit._id !== id));
     } catch (err) {
@@ -87,7 +92,9 @@ function HabitTracker() {
     )
   );
   
-  await fetch(`http://localhost:5000/api/habits/${habitId}`, {
+  await fetch(
+  `${import.meta.env.VITE_API_URL}/api/habits/${id}`,
+  {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

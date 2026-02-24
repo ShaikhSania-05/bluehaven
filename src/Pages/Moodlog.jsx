@@ -29,7 +29,8 @@ function Moodlog() {
 
   const fetchMoods = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/moods", {
+      const res = await fetch(
+  `${import.meta.env.VITE_API_URL}/api/moods`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -79,7 +80,8 @@ function Moodlog() {
                   if (!token) return;
 
                    try {
-                  const res = await fetch("http://localhost:5000/api/moods", {
+                  const res = await fetch(
+               `${import.meta.env.VITE_API_URL}/api/moods`, {
                method: "POST",
               headers: {
               "Content-Type": "application/json",
