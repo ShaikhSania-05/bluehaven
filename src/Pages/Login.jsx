@@ -1,14 +1,17 @@
 import { Link } from "react-router-dom";
 import { MdLock, MdEmail, MdVisibility, MdVisibilityOff } from "react-icons/md";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Modal from "../Components/Modal";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { TbRubberStamp } from "react-icons/tb";
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [identifier, SetIdentifier] = useState("");
   const [password, SetPassword] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
+  const location = useLocation();
   const navigate = useNavigate();
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -41,7 +44,12 @@ function Login() {
       setModalOpen(true);
     }
   };
-
+  useEffect(() => {
+    if (location.state?.message) {
+      setModalMessage(location.state.message);
+      setModalOpen(true);
+    }
+  }, [location.state]);
   return (
     <div className="auth-page">
       <h1 className="auth-logo">BlueHaven</h1>
