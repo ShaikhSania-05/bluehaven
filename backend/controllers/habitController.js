@@ -7,7 +7,7 @@ export const createHabits = async (req, res) => {
     const habit = await Habit.create({
       user: req.user.userId,
       title,
-      days
+      days,
     });
 
     res.status(201).json(habit);
@@ -19,7 +19,7 @@ export const createHabits = async (req, res) => {
 export const getHabits = async (req, res) => {
   try {
     const habits = await Habit.find({
-      user: req.user.userId
+      user: req.user.userId,
     });
 
     res.json(habits);
@@ -34,7 +34,7 @@ export const updateHabits = async (req, res) => {
     const habit = await Habit.findOneAndUpdate(
       { _id: req.params.id, user: req.user.userId },
       { title, days },
-      { new: true }
+      { new: true },
     );
 
     if (!habit) {
@@ -51,14 +51,14 @@ export const deleteHabits = async (req, res) => {
   try {
     const habit = await Habit.findOneAndDelete({
       _id: req.params.id,
-      user: req.user.userId
+      user: req.user.userId,
     });
 
     if (!habit) {
       return res.status(404).json({ message: "Habit not found" });
     }
 
-    res.json({ message: "Habit deleted successfully" });
+    res.status(200).json({ message: "Habit deleted successfully" });
   } catch (error) {
     res.status(500).json({ message: "Server error" });
   }

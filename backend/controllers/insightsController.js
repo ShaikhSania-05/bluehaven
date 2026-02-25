@@ -48,7 +48,6 @@ export const getInsights = async (req, res) => {
       moodCount,
       mostFrequentMood,
     });
-
   } catch (error) {
     res.status(500).json({ message: "Error generating insights" });
   }

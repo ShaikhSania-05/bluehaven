@@ -23,7 +23,6 @@ export const saveMood = async (req, res) => {
 
     await newMood.save();
     res.status(201).json(newMood);
-
   } catch (error) {
     res.status(500).json({ message: "Error saving mood" });
   }

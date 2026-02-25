@@ -22,40 +22,39 @@ function Moodlog() {
     { key: "cry", icon: <FaSadTear /> },
     { key: "angry", icon: <FaAngry /> },
   ];
-   
+
   useEffect(() => {
-  const token = localStorage.getItem("token");
-  if (!token) return;
+    const token = localStorage.getItem("token");
+    if (!token) return;
 
-  const fetchMoods = async () => {
-    try {
-      const res = await fetch(
-  `${import.meta.env.VITE_API_URL}/api/moods`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+    const fetchMoods = async () => {
+      try {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/moods`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
-      if (!res.ok) {
-        console.error("Failed to fetch moods");
-        return;
+        if (!res.ok) {
+          console.error("Failed to fetch moods");
+          return;
+        }
+
+        const data = await res.json();
+
+        const moodMap = {};
+        data.forEach((item) => {
+          moodMap[item.day] = item.mood;
+        });
+
+        setMoods(moodMap);
+      } catch (err) {
+        console.error("Error fetching moods:", err);
       }
+    };
 
-      const data = await res.json();
-
-      const moodMap = {};
-      data.forEach((item) => {
-        moodMap[item.day] = item.mood;
-      });
-
-      setMoods(moodMap);
-    } catch (err) {
-      console.error("Error fetching moods:", err);
-    }
-  };
-
-  fetchMoods();
-}, []); 
+    fetchMoods();
+  }, []);
 
   return (
     <div className="moodlog-page">
@@ -77,44 +76,46 @@ function Moodlog() {
                     moods[day] === mood.key ? "active" : ""
                   }`}
                   onClick={async () => {
-                  if (!token) return;
+                    if (!token) return;
 
-                   try {
-                  const res = await fetch(
-               `${import.meta.env.VITE_API_URL}/api/moods`, {
-               method: "POST",
-              headers: {
-              "Content-Type": "application/json",
-               Authorization: `Bearer ${token}`,
-            },
-               body: JSON.stringify({
-             day,
-          mood: mood.key,
-       }),
-      });
+                    try {
+                      const res = await fetch(
+                        `${import.meta.env.VITE_API_URL}/api/moods`,
+                        {
+                          method: "POST",
+                          headers: {
+                            "Content-Type": "application/json",
+                            Authorization: `Bearer ${token}`,
+                          },
+                          body: JSON.stringify({
+                            day,
+                            mood: mood.key,
+                          }),
+                        },
+                      );
 
-         if (!res.ok) {
-         console.error("Failed to save mood");
-            return;
-       }
+                      if (!res.ok) {
+                        console.error("Failed to save mood");
+                        return;
+                      }
 
-    const data = await res.json();
+                      const data = await res.json();
 
-            setMoods((prev) => ({
-            ...prev,
-          [day]: data.mood,
-           }));
-          } catch (err) {
-            console.error("Error saving mood:", err);
-        }
-        }}
-      >
-         {mood.icon}
-      </button>
-   ))}
-        </div>
-     </div>
-   ))}
+                      setMoods((prev) => ({
+                        ...prev,
+                        [day]: data.mood,
+                      }));
+                    } catch (err) {
+                      console.error("Error saving mood:", err);
+                    }
+                  }}
+                >
+                  {mood.icon}
+                </button>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -1,7 +1,6 @@
 const About = () => {
   return (
     <main className="text-page about-page">
-      
       <header className="page-header">
         <h1 className="brand-title">BlueHaven</h1>
       </header>
@@ -26,8 +25,8 @@ const About = () => {
           emotional disconnect.
         </p>
         <p className="section-text">
-          BlueHaven was created to encourage a more sustainable approach —
-          one that values emotional awareness alongside consistency and growth.
+          BlueHaven was created to encourage a more sustainable approach — one
+          that values emotional awareness alongside consistency and growth.
         </p>
       </section>
       <section className="content-section">
@@ -45,7 +44,6 @@ const About = () => {
           supportive, intentional, and human — not overwhelming or pressured.
         </p>
       </section>
-
     </main>
   );
 };

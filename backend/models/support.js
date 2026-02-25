@@ -13,7 +13,7 @@ const supportSchema = new mongoose.Schema(
       trim: true,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 export default mongoose.model("Support", supportSchema);

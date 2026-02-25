@@ -53,29 +53,26 @@ function Motivation() {
             className="motivation-track"
             style={{
               transform: `translateX(-${current * 100}%)`,
-              transition: isJumping? "none":
-              "transform 0.5s ease-in-out"
+              transition: isJumping ? "none" : "transform 0.5s ease-in-out",
             }}
-            onTransitionEnd={()=>
-              setisJumping(false)}
+            onTransitionEnd={() => setisJumping(false)}
           >
             {quotes.map((quote, index) => (
-              <p key={index}
-              className="motivation-quote">
-              {quote.text}
-             </p>
+              <p key={index} className="motivation-quote">
+                {quote.text}
+              </p>
             ))}
-            </div>
-      <div className="motivation-dots">
-        {quotes.map((_, index) => (
-          <span
-            key={index}
-            className={`dot ${current === index ? "active" : ""}`}
-            onClick={() => setCurrent(index)}
-          />
-        ))}
-      </div>
-      </div>
+          </div>
+          <div className="motivation-dots">
+            {quotes.map((_, index) => (
+              <span
+                key={index}
+                className={`dot ${current === index ? "active" : ""}`}
+                onClick={() => setCurrent(index)}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
