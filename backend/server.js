@@ -9,7 +9,11 @@ import insightsRoutes from "./routes/insightsRoutes.js";
 import supportRoutes from "./routes/supportRoutes.js";
 dotenv.config();
 const app = express();
-app.use(cors());
+app.use(cors({ 
+  origin: process.env.FRONTEND_URL,
+  credentials: true,
+})
+);
 app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/habits", habitRoutes);
