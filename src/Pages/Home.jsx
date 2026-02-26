@@ -7,16 +7,16 @@ import FAQ from "../Components/FAQ.jsx";
 import Footer from "../Components/Footer.jsx";
 function Home() {
   return (
-    <> 
-    <div className="app">
-      <Hero />
-      <Whyitmatters />
-      <Features />
-      <Motivation />
-    </div>
-     <FAQ />
-    <CTA />
-    <Footer />
+    <>
+      <div className="app">
+        <Hero />
+        <Whyitmatters />
+        <Features />
+        <Motivation />
+      </div>
+      <FAQ />
+      <CTA />
+      <Footer />
     </>
   );
 }

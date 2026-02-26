@@ -8,8 +8,8 @@ const Policies = () => {
         <h2 className="section-title">Privacy & Security</h2>
         <p className="section-text">
           BlueHaven is committed to maintaining a safe, transparent, and
-          respectful environment for all users. This page outlines how user
-          data is handled and the terms associated with using the platform.
+          respectful environment for all users. This page outlines how user data
+          is handled and the terms associated with using the platform.
         </p>
       </section>
       <section className="content-section">
@@ -38,15 +38,15 @@ const Policies = () => {
       <section className="content-section">
         <h2 className="section-title">Data & Security</h2>
         <p className="section-text">
-          BlueHaven is designed with security and transparency in mind. Reasonable
-          measures are taken to protect user data and ensure a safe experience.
+          BlueHaven is designed with security and transparency in mind.
+          Reasonable measures are taken to protect user data and ensure a safe
+          experience.
         </p>
         <p className="section-text">
           The platform prioritizes clarity, trust, and responsible handling of
           information at every stage.
         </p>
       </section>
-
     </main>
   );
 };

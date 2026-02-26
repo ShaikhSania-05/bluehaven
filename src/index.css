@@ -1,18 +1,19 @@
 @font-face {
-font-family: "veryberrypro";
-src: url("./assets/fonts/veryberrypro_regular.otf");
-format:("opentype");
-font-weight: normal;
-font-style: normal;
+  font-family: "veryberrypro";
+  src: url("./assets/fonts/veryberrypro_regular.otf");
+  format: ("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
 /* RESET - must need a selector */
-*{margin: 0;
-padding: 0;
-box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 /* ROOT - global font */
 *:root {
-  font-family: "veryberrypro",'Ovo',serif;
+  font-family: "veryberrypro", "Ovo", serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -33,9 +34,9 @@ a:hover {
 
 body {
   margin: 0;
-  font-family: 'Ovo',serif;
+  font-family: "Ovo", serif;
   background-color: #f7f3ea;
-  color:#2f3e46;
+  color: #2f3e46;
   overflow-x: hidden;
 }
 .brand-font {
@@ -58,8 +59,9 @@ button {
   background-color: #a8cfd3;
   color: #2f3e46;
   cursor: pointer;
-  transition: background-color 0.25s 
-  ease, transform 0.2s ease;
+  transition:
+    background-color 0.25s ease,
+    transform 0.2s ease;
 }
 button:hover {
   border-color: #646cff;
