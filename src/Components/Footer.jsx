@@ -70,8 +70,7 @@ function Footer() {
       {/*Bottom Bar*/}
       <div className="footer-bottom">
         <p>
-          © 2025-2026 Digital Well-Being Tracker. Developed & Designed By Shaikh
-          Sania & Shaikh Aqsa.
+          © 2025-2026 Digital Well-Being Tracker. Developed & Designed by Aurelyn Nyxelle.
         </p>
       </div>
     </footer>
